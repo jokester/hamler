@@ -1,6 +1,7 @@
 require "hamler/version"
 require 'thor'
 require 'pathname'
+require 'optparse'
 
 def available? gemname
   require gemname
