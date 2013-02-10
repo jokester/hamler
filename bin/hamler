@@ -1,2 +1,5 @@
 #!/usr/bin/ruby
-p "i'm alive"
+
+require 'hamler'
+
+Hamler.with( ARGV )

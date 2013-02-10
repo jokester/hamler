@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Hamler::VERSION
   gem.authors       = ["Wang Guan"]
   gem.email         = ["momocraft@gmail.com"]
-  gem.description   = %q{a one-command compiler for static webpages}
+  gem.description   = %q{one-line haml/sass/scss compiler}
   gem.summary       = %q{compile haml/sass/scss files in one command}
   gem.homepage      = "https://github.com/jokester/hamler"
 
@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  gem.add_runtime_dependency "thor"
   gem.add_runtime_dependency "haml"
   gem.add_runtime_dependency "sass"
 end
