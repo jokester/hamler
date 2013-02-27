@@ -40,6 +40,8 @@ module Hamler
             ::Sass::Engine.new( source, :syntax => :sass, :quiet => true).render
           when '.scss'
             ::Sass::Engine.new( source, :syntax => :scss, :quiet => true).render
+          when '.coffee'
+            ::CoffeeScript.compile source
           end
         template @@template, new_name
       end

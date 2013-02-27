@@ -20,4 +20,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "thor"
   gem.add_runtime_dependency "haml"
   gem.add_runtime_dependency "sass"
+  gem.add_runtime_dependency "coffee-script"
+  gem.add_runtime_dependency "execjs"
 end
