@@ -44,11 +44,6 @@ module Hamler
         template @@template, new_name
       end
 
-      def copy filename,ext,main
-        new_name = new_name( filename )
-        #copy_file filename, new_name
-      end
-
       def input_folder
         @input_folder ||= Pathname.new options[:input_folder]
       end
@@ -58,8 +53,8 @@ module Hamler
       end
 
       def handle file
-        return unless file.file? and ['.haml','.sass','.scss'].include? file.extname
         new_file = new_name file
+        return unless new_file
         if options[ :dry_run ] and options[ :purge ]
           say_status :would_remove, new_file
         elsif options[ :purge ]
@@ -76,7 +71,7 @@ module Hamler
       def new_name old_name
         output_folder + old_name.relative_path_from( input_folder ).sub_ext( new_ext old_name )
       rescue
-        output_folder + old_name.relative_path_from( input_folder )
+        nil
       end
 
       def new_ext old_name
@@ -85,6 +80,8 @@ module Hamler
           '.css'
         when '.haml'
           '.html'
+        when '.coffee'
+          '.js'
         else
           raise "do not what to do with #{old_ext}"
         end
@@ -102,6 +99,8 @@ module Hamler
     options = {
       :haml_available => available?("haml"),
       :sass_available => available?("sass"),
+      :coffeescript_available \
+                      => available?("coffee-script"),
       :output_folder  => false,
       :input_folder   => false,
       :dry_run        => false,
