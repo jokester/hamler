@@ -37,9 +37,9 @@ module Hamler
           when ".haml"
             ::Haml::Engine.new( source ).render
           when '.sass'
-            ::Sass::Engine.new( source, :syntax => :sass).render
+            ::Sass::Engine.new( source, :syntax => :sass, :quiet => true).render
           when '.scss'
-            ::Sass::Engine.new( source, :syntax => :scss).render
+            ::Sass::Engine.new( source, :syntax => :scss, :quiet => true).render
           end
         template @@template, new_name
       end
