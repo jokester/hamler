@@ -1,10 +1,10 @@
 # Hamler
 
-one-line haml/sass/scss compiler
+one-line haml/s[ac]ss/coffeescript compiler
 
-simply compiles each haml/sass/scss files, and output coresponding html/css files in place, or to another directory.
+simply compiles each haml/s[ac]ss/coffeescript files, and output coresponding html/css/js files in place, or to another directory.
 
-I would recommend `nanoc` for a more functional (non-1-on-1 assocation of files, layouts, etc) content compiler.
+I would recommend `nanoc` for a more functional (non-1-on-1-assocation of files, layouts, etc) content compiler.
 
 ## Installation
 
@@ -31,6 +31,8 @@ invoke with `-i` and `-o` gives
      create  /tmp/subdir1/a_haml_file.html
     compile  test/subdir2/b.sass
      create  /tmp/subdir2/b.css
+    compile  test/subdir2/c.coffee
+     create  /tmp/subdir2/c.js
 
 `-p` purge those files. empty folders remains
 
