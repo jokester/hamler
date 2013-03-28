@@ -42,6 +42,8 @@ module Hamler
             ::Sass::Engine.new( source, :syntax => :scss, :quiet => true).render
           when '.coffee'
             ::CoffeeScript.compile source
+          else
+            source
           end
         template @@template, new_name
       end
@@ -85,13 +87,13 @@ module Hamler
         when '.coffee'
           '.js'
         else
-          raise "do not what to do with #{old_ext}"
+          old_name.extname
         end
       end
 
       def root_task
         Pathname.new( source_root ).find \
-          {|f| handle f }
+          {|f| handle f if f.file? }
       end
 
     end
